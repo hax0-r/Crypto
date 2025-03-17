@@ -7,7 +7,7 @@ const Home = () => {
         <>
             <BodyWrapper>
 
-                <div className="bg-red-300 min-h-[calc(100vh-5.5rem)] overflow-hidden">
+                <div className="min-h-[calc(100vh-5.5rem)] overflow-hidden">
                     <video className="w-full h-[calc(100vh-5.5rem)] scale-x-[-1] absolute top-[5.5rem] right-0 object-cover " autoPlay loop muted>
                         <source src={video} type="video/mp4" />
                     </video>
