@@ -1,0 +1,92 @@
+@font-face {
+  font-family: NekstLight;
+  src: url(./Nekst/Nekst-Light.otf) format('opentype');
+}
+
+@font-face {
+  font-family: Nekst;
+  src: url('./Nekst/Nekst-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: NekstMedium;
+  src: url(./Nekst/Nekst-Medium.otf) format('opentype');
+}
+
+@font-face {
+  font-family: NekstSemibold;
+  src: url(./Nekst/Nekst-SemiBold.otf) format('opentype');
+}
+
+@font-face {
+  font-family: NekstBold;
+  src: url(./Nekst/Nekst-Bold.otf) format('opentype');
+}
+
+.NekstLight {
+  font-family: NekstLight;
+}
+
+.NekstMedium {
+  font-family: NekstMedium;
+}
+
+.NekstSemibold {
+  font-family: NekstSemibold;
+}
+
+.NekstBold {
+  font-family: NekstBold;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  font-family: Nekst;
+  scroll-behavior: smooth;
+}
+
+img,
+button,
+iframe,
+a {
+  user-select: none;
+}
+
+.slidein {
+  animation: slideAnimation 1s ease var(--slidein-delay, 0) forwards;
+}
+
+@keyframes slideAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.myShadow {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.active {
+  color: #be96ff;
+}
