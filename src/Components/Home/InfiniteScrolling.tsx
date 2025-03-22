@@ -1,11 +1,8 @@
-import { useState } from 'react'
 import Slider from 'react-infinite-logo-slider'
 
 const InfiniteScrolling = () => {
 
-    const [boxWidth, setBoxWidth] = useState<string>(
-        window.innerWidth >= 400 ? "300px" : "190px"
-    );
+    const boxWidth = window.innerWidth >= 400 ? "300px" : "190px"
 
     return (
         <Slider
