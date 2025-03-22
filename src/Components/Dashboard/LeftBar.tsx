@@ -1,4 +1,3 @@
-import React from 'react'
 import logo from '../../assets/logo.png'
 import { LiaAwardSolid } from 'react-icons/lia'
 import { TfiHelpAlt } from 'react-icons/tfi'

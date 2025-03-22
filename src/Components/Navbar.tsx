@@ -2,7 +2,6 @@ import { Link, NavLink } from "react-router"
 import logo from '../assets/logo.png'
 import { IoIosArrowDown } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { FaBars } from "react-icons/fa6";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
