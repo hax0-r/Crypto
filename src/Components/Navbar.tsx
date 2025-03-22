@@ -13,17 +13,18 @@ const Navbar = () => {
             <div className="bg-black text-white h-[5.5rem]">
                 <div className="max-w-7xl w-full mx-auto p-5 flex items-center justify-between">
 
-                    <Link to={"/"}>
-                        <img src={logo} alt="logo" className="h-12" />
+                    <Link to={"/"} className="flex items-center gap-3">
+                        <img src={logo} alt="logo" className="h-10 rounded-lg" />
+                        <h2 className="text-lg md:block hidden font-semibold leading-tight">Wealth <br /> Way Trade</h2>
                     </Link>
 
 
-                    <ul className="lg:flex hidden gap-10">
+                    {/* <ul className="lg:flex hidden gap-10">
                         <li><NavLink to={"/"}>Home</NavLink></li>
                         <li><NavLink to={"/about"}>About Us</NavLink></li>
                         <li><NavLink to={"/partner"}>Partners</NavLink></li>
                         <li><NavLink to={"/faq"}>Faqs</NavLink></li>
-                    </ul>
+                    </ul> */}
 
                     <div className="flex items-center gap-10">
                         <div className="flex font-medium md:text-lg cursor-pointer items-center gap-2">
@@ -32,7 +33,7 @@ const Navbar = () => {
                         </div>
                         <button className="bg-[#5f29b7] lg:flex hidden items-center gap-3 px-7 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 py-3 rounded-full">Sign In<FaArrowRightLong />
                         </button>
-                        <FaBars onClick={() => setNavbar(true)} className="text-2xl cursor-pointer lg:hidden" />
+                        {/* <FaBars onClick={() => setNavbar(true)} className="text-2xl cursor-pointer lg:hidden" /> */}
                     </div>
                 </div>
             </div>
