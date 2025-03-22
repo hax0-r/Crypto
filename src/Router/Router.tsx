@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router"
 import Home from "../Pages/Home"
-import Platform from "../Pages/Dashboard/platform"
+import Platform from "../Pages/Dashboard/Platform"
 
 const Router = () => {
     return (
