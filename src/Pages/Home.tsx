@@ -20,7 +20,7 @@ const Home = () => {
                                 <span className="bg-gradient-to-r pt-3 block NekstLight from-[#5F29B7] to-white bg-clip-text text-transparent">  with bots
                                     and smart trades</span></h1>
                             <div className="md:mt-8 mt-5">
-                                <button onClick={()=> navigate("/platform")} className="bg-[#5f29b7] flex items-center gap-3 md:px-12 px-9 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 md:py-5 py-4 text-xl rounded-full">Sign Up Now<FaArrowRightLong />
+                                <button onClick={()=> navigate("/create-account")} className="bg-[#5f29b7] flex items-center gap-3 md:px-12 px-9 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 md:py-5 py-4 text-xl rounded-full">Sign Up Now<FaArrowRightLong />
                                 </button>
                             </div>
                         </div>

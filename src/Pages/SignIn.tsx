@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import logo from '../assets/logo.png'
 import { IoCloseOutline } from 'react-icons/io5'
 import { FaArrowRightLong } from 'react-icons/fa6'
@@ -20,6 +20,8 @@ import { Label } from "../Components/ui/label"
 
 const SignIn = () => {
 
+    const navigate = useNavigate()
+
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -39,6 +41,7 @@ const SignIn = () => {
             return;
         }
         toast.success("Welcome, Name");
+        navigate("/platform")
     };
 
     return (
