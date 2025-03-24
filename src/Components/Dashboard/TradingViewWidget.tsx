@@ -35,14 +35,8 @@ function TradingViewWidget() {
 
     return (
         <div
-            className="tradingview-widget-container bg-black"
+            className="tradingview-widget-container bg-black w-full md:h-screen h-[calc(100vh-15rem)] max-w-[100%] overflow-hidden"
             ref={container}
-            style={{
-                width: "100%", // ✅ Full width of the viewport
-                height: "100vh", // ✅ Full height of the viewport
-                maxWidth: "100%",
-                overflow: "hidden",
-            }}
         >
             <div
                 className="tradingview-widget-container__widget"

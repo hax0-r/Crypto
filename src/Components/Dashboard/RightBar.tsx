@@ -17,10 +17,8 @@ const RightBar = () => {
             <div className="bg-[#171022] w-96 p-4 md:block hidden">
                 <div className="flex items-center justify-between gap-5">
                     <Sheet>
-                        <SheetTrigger>
-                            <button className="bg-[#5f29b7] text-white px-16 py-3 rounded-lg cursor-pointer hover:opacity-80 transition-all duration-500">
-                                Payment
-                            </button>
+                        <SheetTrigger className="bg-[#5f29b7] text-white px-16 py-3 rounded-lg cursor-pointer hover:opacity-80 transition-all duration-500">
+                            Payment
                         </SheetTrigger>
                         <SheetContent>
                             <PaymentMethods />
