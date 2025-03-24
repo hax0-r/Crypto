@@ -1,0 +1,35 @@
+import { FiUser } from "react-icons/fi"
+import { IoWalletOutline } from "react-icons/io5";
+import {
+    Sheet,
+    SheetContent,
+    SheetTrigger,
+} from "../ui/sheet"
+import PaymentMethods from "./PaymentMethods";
+
+const TopBar = () => {
+    return (
+        <div>
+
+            <div className="md:hidden flex items-center justify-between p-3 bg-[#171022]">
+                <div className="w-12 h-12 hover:opacity-80 transition-all duration-500 cursor-pointer bg-[#5f29b760] flex items-center justify-center text-white rounded-full">
+                    <FiUser className="text-2xl" />
+                </div>
+                <Sheet>
+                    <SheetTrigger>
+                        <div className="w-12 h-12 hover:opacity-80 transition-all duration-500 cursor-pointer bg-[#5f29b760] flex items-center justify-center text-white rounded-lg">
+                            <IoWalletOutline className="text-2xl" />
+                        </div>
+                    </SheetTrigger>
+                    <SheetContent>
+                        <PaymentMethods />
+                    </SheetContent>
+                </Sheet>
+            </div>
+
+
+        </div>
+    )
+}
+
+export default TopBar

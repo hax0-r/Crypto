@@ -4,7 +4,7 @@ import { TfiHelpAlt } from 'react-icons/tfi'
 
 const LeftBar = () => {
     return (
-        <div className='bg-[#171022] w-20  p-4'>
+        <div className='bg-[#171022] w-20  p-4 lg:block hidden'>
             <img src={logo} alt="logo" className='rounded-lg' />
             <div className="flex mt-10 items-center justify-center flex-col  text-zinc-500 duration-500 transition-all hover:text-white cursor-pointer">
                 <LiaAwardSolid className='text-3xl' />

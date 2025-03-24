@@ -25,12 +25,12 @@ const Navbar = () => {
                         <li><NavLink to={"/faq"}>Faqs</NavLink></li>
                     </ul> */}
 
-                    <div className="flex items-center gap-10">
+                    <div className="flex items-center md:gap-10 gap-4">
                         <div className="flex font-medium md:text-lg cursor-pointer items-center gap-2">
                             <p>en</p>
                             <IoIosArrowDown />
                         </div>
-                        <Link to={"/sign-in"} className="bg-[#5f29b7] lg:flex hidden items-center gap-3 px-7 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 py-3 rounded-full">Sign In<FaArrowRightLong />
+                        <Link to={"/sign-in"} className="bg-[#5f29b7] flex items-center gap-3 md:px-7 px-5 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 md:py-3 py-2 rounded-full">Sign In<FaArrowRightLong className="lg:flex hidden" />
                         </Link>
                         {/* <FaBars onClick={() => setNavbar(true)} className="text-2xl cursor-pointer lg:hidden" /> */}
                     </div>
