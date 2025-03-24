@@ -30,8 +30,8 @@ const Navbar = () => {
                             <p>en</p>
                             <IoIosArrowDown />
                         </div>
-                        <button className="bg-[#5f29b7] lg:flex hidden items-center gap-3 px-7 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 py-3 rounded-full">Sign In<FaArrowRightLong />
-                        </button>
+                        <Link to={"/sign-in"} className="bg-[#5f29b7] lg:flex hidden items-center gap-3 px-7 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 py-3 rounded-full">Sign In<FaArrowRightLong />
+                        </Link>
                         {/* <FaBars onClick={() => setNavbar(true)} className="text-2xl cursor-pointer lg:hidden" /> */}
                     </div>
                 </div>
