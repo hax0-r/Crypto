@@ -1,26 +1,26 @@
 @font-face {
   font-family: NekstLight;
-  src: url(./Nekst/Nekst-Light.otf) format('opentype');
+  src: url(../public/Fonts/Nekst/Nekst-Light.otf) format('opentype');
 }
 
 @font-face {
   font-family: Nekst;
-  src: url('./Nekst/Nekst-Regular.otf') format('opentype');
+  src: url('../public/Fonts/Nekst/Nekst-Regular.otf') format('opentype');
 }
 
 @font-face {
   font-family: NekstMedium;
-  src: url(./Nekst/Nekst-Medium.otf) format('opentype');
+  src: url(../public/Fonts/Nekst/Nekst-Medium.otf) format('opentype');
 }
 
 @font-face {
   font-family: NekstSemibold;
-  src: url(./Nekst/Nekst-SemiBold.otf) format('opentype');
+  src: url(../public/Fonts/Nekst/Nekst-SemiBold.otf) format('opentype');
 }
 
 @font-face {
   font-family: NekstBold;
-  src: url(./Nekst/Nekst-Bold.otf) format('opentype');
+  src: url(../public/Fonts/Nekst/Nekst-Bold.otf) format('opentype');
 }
 
 .NekstLight {

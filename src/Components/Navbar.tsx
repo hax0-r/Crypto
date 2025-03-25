@@ -4,9 +4,19 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false)
+
+    const { i18n } = useTranslation();
+
+    const storedLanguage = localStorage.getItem("i18nextLng");
+
+    const changeLanguage = (lang: string) => {
+        i18n.changeLanguage(lang);
+    }
+
     return (
         <>
             <div className="bg-black text-white h-[5.5rem]">
@@ -25,10 +35,18 @@ const Navbar = () => {
                         <li><NavLink to={"/faq"}>Faqs</NavLink></li>
                     </ul> */}
 
-                    <div className="flex items-center md:gap-10 gap-4">
-                        <div className="flex font-medium md:text-lg cursor-pointer items-center gap-2">
-                            <p>en</p>
-                            <IoIosArrowDown />
+                    <div className="flex items-center z-10 md:gap-10 gap-4 group">
+                        <div className="relative">
+                            <div className="flex font-medium md:text-lg cursor-pointer items-center gap-2">
+                                <p>{storedLanguage}</p>
+                                <IoIosArrowDown />
+                            </div>
+
+                            <div className="absolute w-20 top-8 hidden -left-4 group-hover:block fadeIn p-2 rounded-lg bg-[#5f29b7]">
+                                <button onClick={() => changeLanguage('en')} className="hover:bg-[#7641cd] w-full transition-all duration-500 cursor-pointer px-3 py-1.5 rounded-lg">en</button>
+                                <button onClick={() => changeLanguage('ur')} className="hover:bg-[#7641cd] w-full transition-all duration-500 cursor-pointer px-3 py-1.5 rounded-lg">ur</button>
+                            </div>
+
                         </div>
                         <Link to={"/sign-in"} className="bg-[#5f29b7] flex items-center gap-3 md:px-7 px-5 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 md:py-3 py-2 rounded-full">Sign In<FaArrowRightLong className="lg:flex hidden" />
                         </Link>
