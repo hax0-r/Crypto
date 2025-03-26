@@ -10,9 +10,6 @@ const Home = () => {
 
     const { t } = useTranslation();
 
-    // know this
-    const { line1, line2 } = t("mainHeading", { returnObjects: true }) as { line1: string; line2: string };
-
     return (
         <>
             <BodyWrapper>
@@ -22,9 +19,9 @@ const Home = () => {
                     </video>
                     <div className="z-10 relative max-w-7xl p-5 w-full mx-auto flex justify-between  min-h-[calc(100vh-20vh)] flex-col ">
                         <div className="">
-                            <h1 className="md:text-7xl text-[2.8rem]  font-semibold max-w-2xl md:leading-[1.1] leading-tight capitalize ">{line1}
+                            <h1 className="md:text-7xl text-[2.8rem]  font-semibold max-w-2xl md:leading-[1.1] leading-tight capitalize ">{t("mainHeading.line1")}
                                 <span className="bg-gradient-to-r pt-3 block NekstLight from-[#5F29B7] to-white bg-clip-text text-transparent">
-                                    {line2}</span></h1>
+                                    {t("mainHeading.line2")}</span></h1>
                             <div className="md:mt-8 mt-5">
                                 <button onClick={() => navigate("/create-account")} className="bg-[#5f29b7] flex items-center gap-3 md:px-12 px-9 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 md:py-5 py-4 text-xl rounded-full">{t("signUp")}<FaArrowRightLong />
                                 </button>

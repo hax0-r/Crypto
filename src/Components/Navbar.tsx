@@ -2,20 +2,24 @@ import { Link, NavLink } from "react-router"
 import logo from '../assets/logo.png'
 import { IoIosArrowDown } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false)
 
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
-    const storedLanguage = localStorage.getItem("i18nextLng");
+    const storedLanguage = localStorage.getItem("i18nextLng") || "en";
 
     const changeLanguage = (lang: string) => {
         i18n.changeLanguage(lang);
     }
+
+    useEffect(() => {
+        document.body.dir = i18n.dir();
+    }, [i18n, i18n.language])
 
     return (
         <>
@@ -48,7 +52,7 @@ const Navbar = () => {
                             </div>
 
                         </div>
-                        <Link to={"/sign-in"} className="bg-[#5f29b7] flex items-center gap-3 md:px-7 px-5 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 md:py-3 py-2 rounded-full">Sign In<FaArrowRightLong className="lg:flex hidden" />
+                        <Link to={"/sign-in"} className="bg-[#5f29b7] flex items-center gap-3 md:px-7 px-5 cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 md:py-3 py-2 rounded-full">{t("signIn")}<FaArrowRightLong className="lg:flex hidden" />
                         </Link>
                         {/* <FaBars onClick={() => setNavbar(true)} className="text-2xl cursor-pointer lg:hidden" /> */}
                     </div>
