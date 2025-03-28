@@ -7,6 +7,7 @@ import {
     SheetTrigger,
 } from "../ui/sheet"
 import PaymentMethods from "./PaymentMethods";
+import { Link } from "react-router";
 
 const RightBar = () => {
     const [amount, setAmount] = useState(0);
@@ -25,9 +26,9 @@ const RightBar = () => {
                         </SheetContent>
                     </Sheet>
 
-                    <div className="w-12 h-12 hover:opacity-80 transition-all duration-500 cursor-pointer bg-[#5f29b760] flex items-center justify-center text-white rounded-full">
+                    <Link to={"/user-dashboard"} className="w-12 h-12 hover:opacity-80 transition-all duration-500 cursor-pointer bg-[#5f29b760] flex items-center justify-center text-white rounded-full">
                         <FiUser className="text-2xl" />
-                    </div>
+                    </Link>
                 </div>
 
                 {/* Amount Section */}
