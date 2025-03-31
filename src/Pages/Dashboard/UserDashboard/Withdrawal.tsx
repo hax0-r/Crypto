@@ -9,7 +9,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "../../../Components/ui/select"
-import { IoCloudUploadOutline } from "react-icons/io5";
 
 
 const Withdrawal = () => {
