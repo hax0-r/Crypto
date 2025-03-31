@@ -44,6 +44,10 @@
   outline: none;
   font-family: Nekst;
   scroll-behavior: smooth;
+  &::selection{
+    background-color: #5f29b7;
+    color: white;
+  }
 }
 
 img,
@@ -95,4 +99,13 @@ a {
 
 .bgSignIn{
   background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.795)), url(/public/home/signInBg.png) center/cover;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar {
+  -ms-overflow-style: none;  /* Hide scrollbar in IE/Edge */
+  scrollbar-width: none;      /* Hide scrollbar in Firefox */
 }

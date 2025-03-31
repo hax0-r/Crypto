@@ -24,7 +24,7 @@ interface UserDashboardWrapperProps {
 const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({ children, ...props }) => {
     const location = window.location.pathname
 
-    const [isOpen, setIsOpen] = useState<Boolean>(false)
+    const [isOpen, setIsOpen] = useState<Boolean>(true)
     useEffect(() => {
         const handleResize = () => {
             setIsOpen(window.innerWidth >= 1024 ? true : false);
@@ -35,8 +35,8 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({ children, .
     }, []);
 
     return (
-        <div className="bg-[#1b102e] flex w-full h-screen">
-            <div className={` ${isOpen ? "w-60 opacity-100" : "w-0 opacity-0"} w-0 transition-all duration-500 overflow-hidden bg-[#171022] left-0 top-0 lg:static fixed z-20 h-screen lg:pt-8 pt-4 md:w-80`}>
+        <div className="bg-[#171022] flex w-full md:h-screen ">
+            <div className={` ${isOpen ? "w-60 opacity-100" : "w-0 opacity-0"} w-0 transition-all duration-500 overflow-hidden bg-[#171022] left-0 top-0 lg:static fixed z-20 h-screen md:border-r border-[#ffffff11] lg:pt-8 pt-4 md:w-80`}>
                 <div className="flex text-2xl lg:hidden px-3 items-end justify-end text-white">
                     <IoClose onClick={() => setIsOpen(false)} />
                 </div>
@@ -91,7 +91,7 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({ children, .
                     </div>
                 </div>
             </div>
-            <div className=" lg:p-6 p-4 w-full ">
+            <div className="bg-[#171022] lg:p-6 p-4 w-full ">
                 <div className="bg-[#171022] flex text-white md:px-5 px-3 py-2 rounded-lg items-center justify-between border border-[#5c37a1]">
                     <div className="lg:flex hidden items-center gap-3">
                         <h2 className="font-medium">Crypto Trading</h2>
@@ -122,7 +122,7 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({ children, .
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
-                <div className="py-5 md:h-[calc(100vh-8rem)] h-[calc(100vh-1.5rem)] text-white overflow-auto">
+                <div className="py-5 md:h-[calc(100vh-8rem)] text-white overflow-auto custom-scrollbar">
                     {children}
                 </div>
             </div>

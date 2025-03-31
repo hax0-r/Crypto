@@ -40,7 +40,8 @@ const CreateAccount = () => {
     };
     return (
         <>
-            <div className="w-full  relative min-h-screen bg-black bgSignIn bg-cover bg-center">
+        <div className="bg-black">
+            <div className="w-full  relative min-h-screen bgSignIn bg-cover bg-center">
                 <Link to={"/"} className="md:flex hidden absolute top-5 left-5 text-white items-center gap-3">
                     <img src={logo} alt="logo" className="h-10 rounded-lg" />
                     <h2 className="text-lg font-semibold leading-tight">Wealth <br /> Way Trade</h2>
@@ -106,6 +107,7 @@ const CreateAccount = () => {
 
                 </div>
             </div>
+        </div>
         </>
     )
 }
