@@ -26,18 +26,18 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({ children, .
     const location = useLocation();
 
     const [isOpen, setIsOpen] = useState<Boolean>(true)
+
     useEffect(() => {
-        setIsOpen(false);
+        if (window.innerWidth < 1024) {
+            setIsOpen(false);
+        }
     }, [location.pathname]);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsOpen(window.innerWidth >= 1024 ? true : false);
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    const closeSlideBar = () => {
+        if (window.innerWidth < 1024) {
+            setIsOpen(false);
+        }
+    }
 
     return (
         <div className="bg-[#171022] flex w-full md:h-screen ">
@@ -51,35 +51,35 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({ children, .
                 </Link>
                 <div className="mt-5 px-3 border-t border-[#492c807c] pt-5 h-[calc(100vh-7rem)] flex flex-col justify-between">
                     <div className="">
-                        <Link onClick={() => setIsOpen(false)} to={"/user-dashboard"} className={`flex ${location.pathname == "/user-dashboard" && "bg-[#6e45b95d] text-white"} p-3 rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d] items-center gap-2`}>
+                        <Link onClick={closeSlideBar} to={"/user-dashboard"} className={`flex ${location.pathname == "/user-dashboard" && "bg-[#6e45b95d] text-white"} p-3 rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d] items-center gap-2`}>
                             <RxDashboard className="text-xl" />
                             <p>Dashboard</p>
                         </Link>
-                        <Link onClick={() => setIsOpen(false)} to={"/deposit"} className={`flex p-3 mt-1 ${location.pathname == "/deposit" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
+                        <Link onClick={closeSlideBar} to={"/deposit"} className={`flex p-3 mt-1 ${location.pathname == "/deposit" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
                             <AiOutlineBank className="text-xl" />
                             <p>Deposit</p>
                         </Link>
-                        <Link onClick={() => setIsOpen(false)} to={"/withdrawal"} className={`flex p-3 mt-1 ${location.pathname == "/withdrawal" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
+                        <Link onClick={closeSlideBar} to={"/withdrawal"} className={`flex p-3 mt-1 ${location.pathname == "/withdrawal" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
                             <PiHandWithdraw className="text-xl" />
                             <p>Withdrawal</p>
                         </Link>
-                        <Link onClick={() => setIsOpen(false)} to={"/payment-method"} className={`flex p-3 mt-1 ${location.pathname == "/payment-method" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
+                        <Link onClick={closeSlideBar} to={"/payment-method"} className={`flex p-3 mt-1 ${location.pathname == "/payment-method" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
                             <MdOutlinePayment className="text-xl" />
                             <p className="text-nowrap">Payment Method</p>
                         </Link>
-                        <Link onClick={() => setIsOpen(false)} to={"/bot-plan"} className={`flex p-3 mt-1 ${location.pathname == "/bot-plan" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
+                        <Link onClick={closeSlideBar} to={"/bot-plan"} className={`flex p-3 mt-1 ${location.pathname == "/bot-plan" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
                             <RiRobot3Line className="text-xl" />
                             <p>Bot Plan</p>
                         </Link>
-                        <Link onClick={() => setIsOpen(false)} to={"/referral"} className={`flex p-3 mt-1 ${location.pathname == "/referral" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
+                        <Link onClick={closeSlideBar} to={"/referral"} className={`flex p-3 mt-1 ${location.pathname == "/referral" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
                             <VscReferences className="text-xl" />
                             <p>Referral</p>
                         </Link>
-                        <Link onClick={() => setIsOpen(false)} to={"/transactions"} className={`flex p-3 mt-1 ${location.pathname == "/transactions" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
+                        <Link onClick={closeSlideBar} to={"/transactions"} className={`flex p-3 mt-1 ${location.pathname == "/transactions" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
                             <IoReceiptOutline className="text-xl" />
                             <p>Transactions</p>
                         </Link>
-                        <Link onClick={() => setIsOpen(false)} to={"/events"} className={`flex p-3 mt-1 ${location.pathname == "/events" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
+                        <Link onClick={closeSlideBar} to={"/events"} className={`flex p-3 mt-1 ${location.pathname == "/events" && "bg-[#6e45b95d] text-white"} rounded-lg text-[#ffffffb6] hover:text-white transition-all duration-500 hover:bg-[#6e45b95d]  items-center gap-2`}>
                             <GoGift className="text-xl" />
                             <p>Events</p>
                         </Link>
@@ -127,7 +127,7 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({ children, .
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
-                <div className="py-5 md:min-h-[calc(100vh-8rem)] min-h-[calc(100vh-5rem)]  text-white overflow-auto custom-scrollbar">
+                <div className="py-5 md:h-[calc(100vh-8rem)] h-[calc(100vh-5.1rem)]  text-white overflow-auto custom-scrollbar">
                     {children}
                 </div>
             </div>

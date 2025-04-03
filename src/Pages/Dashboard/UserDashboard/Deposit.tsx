@@ -9,14 +9,12 @@ import {
     SelectTrigger,
     SelectValue,
 } from "../../../Components/ui/select"
-import { IoCloudUploadOutline } from "react-icons/io5";
-
 
 const Deposit = () => {
     return (
         <UserDashboardLeftBar breadcrumb="Deposit">
 
-                    <h2 className="md:text-3xl text-xl mt-4 tracking-wide font-semibold">Deposit Money</h2>
+            <h2 className="md:text-3xl text-xl mt-4 tracking-wide font-semibold">Deposit Money</h2>
             <div className="flex md:flex-row flex-col mt-6 items-start justify-between md:gap-20 gap-8">
 
                 <div className="md:max-w-[50%] w-full">
@@ -40,7 +38,7 @@ const Deposit = () => {
                     <p className="text-sm mb-2 mt-8">Deposit Amount</p>
                     <Input placeholder="$ 1000.00" />
 
-                    <p className="text-sm mb-2 mt-8">Upload Proof</p>
+                    {/* <p className="text-sm mb-2 mt-8">Upload Proof</p>
                     <div className="flex items-center justify-center w-full">
                         <label
                             htmlFor="dropzone-file"
@@ -57,28 +55,23 @@ const Deposit = () => {
                             </div>
                             <input id="dropzone-file" type="file" className="hidden" />
                         </label>
-                    </div>
+                    </div> */}
 
                     <button className="w-full rounded-lg p-3 text-white bg-[#5f29b7] cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 mt-4">Continue</button>
                 </div>
                 <div className="md:max-w-[50%] w-full">
-                    <h2 className="text-xl capitalize mt-4 tracking-wide font-semibold">Our Deposit Accounts</h2>
+                    <h2 className="text-xl capitalize mt-4 tracking-wide font-semibold">Secure & Flexible Deposit Policy</h2>
 
-                    <h3 className="text-lg font-medium mb-1 md:mt-8 mt-5">Bank Name: EasyPasia</h3>
-                    <p className="text-[#ffffffaf]">Account Title: John Doe</p>
-                    <p className="text-[#ffffffaf]">Account Number: 1234567890</p>
-                    <p className="text-[#ffffffaf]">IBAN: ABCD123456789012345678</p>
-
-                    <h3 className="text-lg font-medium mb-1 md:mt-8 mt-5">Bank Name: JazzCash</h3>
-                    <p className="text-[#ffffffaf]">Account Title: John Doe</p>
-                    <p className="text-[#ffffffaf]">Account Number: 1234567890</p>
-                    <p className="text-[#ffffffaf]">IBAN: ABCD123456789012345678</p>
-
-                    <h3 className="text-lg font-medium mb-1 md:mt-8 mt-5">Bank Name: Paypal</h3>
-                    <p className="text-[#ffffffaf]">Account Title: John Doe</p>
-                    <p className="text-[#ffffffaf]">Account Number: 1234567890</p>
-                    <p className="text-[#ffffffaf]">IBAN: ABCD123456789012345678</p>
-
+                    <h3 className="text-lg font-medium mb-2 md:mt-8 mt-5">Seamless Transactions for Uninterrupted Trading</h3>
+                    <p className="text-[#ffffffaf] md:leading-relaxed">
+                        At wealth way trade, we ensure a smooth and secure deposit process, allowing traders to fund their accounts effortlessly. Our deposit policy is designed to provide flexibility, security, and convenience
+                    </p>
+                    <ul className="list-disc mt-5 pl-5 text-[#ffffffd5] space-y-3">
+                       <li> Minimum Deposit: $2,500 per transaction</li>
+                       <li> Maximum Limit: No daily cap – deposit as much as you need</li>
+                       <li> Instant Processing: Fast and secure transactions for uninterrupted trading</li>
+                       <li> Multiple Payment Methods: Choose from a variety of deposit options to suit your needs</li>
+                    </ul>
                 </div>
 
             </div>

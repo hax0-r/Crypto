@@ -2,6 +2,7 @@ import UserDashboardLeftBar from "../../../Components/Dashboard/UserDashboard/Us
 import { GrMoney } from "react-icons/gr";
 import { RiStackshareLine } from "react-icons/ri";
 import { BsCurrencyDollar } from "react-icons/bs";
+import Chart from "../../../Components/Dashboard/UserDashboard/Dashboard/Chart";
 
 interface DashboardCardProps {
     title: string;
@@ -34,6 +35,9 @@ const UserDashboard = () => {
                     <DashboardCard title="Total Profit" amount="$ 5,000" description="Earnings eligible for withdrawal." icon={GrMoney} />
                     <DashboardCard title="Referred Friends" amount="3" description="Friends you've successfully invited." icon={RiStackshareLine} />
                 </div>
+            <div className="mt-10">
+                <Chart />
+            </div>
             </UserDashboardLeftBar>
         </div>
     );
