@@ -19,9 +19,9 @@ const TopBar = () => {
                 <div className="bg-[#171022] py-3 rounded-lg border-[#403257] px-5 text-end border right-5 text-white"><span className="text-[#c4c4ca] text-sm">PKR</span> 0.00</div>
                 <Sheet>
                     <SheetTrigger>
-                        <Link to={"/payment-method"} className="w-12 h-12 hover:opacity-80 transition-all duration-500 cursor-pointer bg-[#5f29b760] flex items-center justify-center text-white rounded-lg">
+                        <div className="w-12 h-12 hover:opacity-80 transition-all duration-500 cursor-pointer bg-[#5f29b760] flex items-center justify-center text-white rounded-lg">
                             <IoWalletOutline className="text-2xl" />
-                        </Link>
+                        </div>
                     </SheetTrigger>
                     <SheetContent>
                         <PaymentMethods />
