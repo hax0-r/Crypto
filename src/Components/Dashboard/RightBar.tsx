@@ -114,6 +114,13 @@ const RightBar = () => {
                             )
                         }
                     </div>
+                    {
+                        !botEnable && (
+                            <p className="text-xs mt-2 tracking-wide text-[#ffffff4b]">
+                                Enable bot for more profitable trades
+                            </p>
+                        )
+                    }
 
 
                 </div>
