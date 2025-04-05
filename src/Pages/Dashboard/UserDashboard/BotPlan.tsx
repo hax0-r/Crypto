@@ -48,13 +48,13 @@ const BotPlan = () => {
                                             Plan Name
                                         </th>
                                         <th className="p-5 leading-6 capitalize text-center">
-                                            Automated Trading
+                                            Simple Trade Boost
                                         </th>
                                         <th className="p-5 leading-6 capitalize text-center">
-                                            Market Analysis
+                                            Smarter Trading Flow
                                         </th>
                                         <th className="p-5 leading-6 capitalize text-center">
-                                            AI Predictions
+                                            Consistent Trade Success
                                         </th>
                                         <th className="p-5 leading-6 capitalize text-center rounded-tr-xl">
                                             Price
@@ -103,7 +103,7 @@ const BotPlan = () => {
                 <div className="text-center mt-6">
                     <h2 className="md:text-xl text-lg md:tracking-wide text-[#ffffffd0]">Maximize Your Profits with AI Trading Bots</h2>
                     <p className="text-[#ffffff8a] mt-2">
-                        Get access to cutting-edge trading bots that automate your trades, analyze market trends, and provide AI-driven insights.  
+                        Get access to cutting-edge trading bots that automate your trades, analyze market trends, and provide AI-driven insights.
                         Choose the right plan and start optimizing your investments today!
                     </p>
                 </div>
