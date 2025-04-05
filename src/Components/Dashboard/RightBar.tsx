@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FiUser } from "react-icons/fi";
 import { LuMoveUp } from "react-icons/lu";
+import { FiLock } from "react-icons/fi";
 import {
     Sheet,
     SheetContent,
@@ -8,10 +9,16 @@ import {
 } from "../ui/sheet"
 import PaymentMethods from "./PaymentMethods";
 import { Link } from "react-router";
+import { Button } from "../ui/button";
+import { RiRobot2Line } from "react-icons/ri";
+
 
 const RightBar = () => {
     const [amount, setAmount] = useState(0);
     const [duration, setDuration] = useState(5);
+    const [botOn, setBotOn] = useState<boolean>(false)
+
+    const botEnable = false
 
     return (
         <>
@@ -93,6 +100,22 @@ const RightBar = () => {
                             Down <LuMoveUp className="rotate-180" />
                         </button>
                     </div>
+
+                    <div className={`relative mt-5 ${!botEnable && "overflow-hidden rounded-lg"} `}>
+                        <Button onClick={() => setBotOn(!botOn)} size={"lg"} className={` ${botOn ? "bg-[#5726a8]" : "bg-transparent"}  ${botEnable ? "opacity-100" : "opacity-20"} active:translate-y-0.5  border   border-[#5726a8] w-full`}>
+                            <RiRobot2Line />
+                            Enable Bot
+                        </Button>
+                        {
+                            !botEnable && (
+                                <div className="w-full h-full cursor-not-allowed flex items-center justify-center bg-[#2c174f56] absolute top-0 left-0">
+                                    <FiLock className="text-[#ffffffe3] text-2xl" />
+                                </div>
+                            )
+                        }
+                    </div>
+
+
                 </div>
             </div>
         </>

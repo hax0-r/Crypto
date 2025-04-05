@@ -10,7 +10,7 @@ function App() {
     <>
       <Suspense fallback={<Loader />}>
         <Router />
-        <ToastContainer />
+        <ToastContainer limit={2} />
         {/* <TradingChat /> */}
       </Suspense>
     </>
