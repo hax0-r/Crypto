@@ -1,17 +1,20 @@
-import './App.css'
-// import TradingChat from './Components/Dashboard/TradingChat';
-import Router from './Router/Router'
+import { Suspense, lazy } from 'react';
+import './App.css';
+import Loader from './Components/Loader';
 import { ToastContainer } from 'react-toastify';
 
-function App() {
+const Router = lazy(() => import('./Router/Router'));
 
+function App() {
   return (
     <>
-      <Router />
-      <ToastContainer />
-      {/* <TradingChat/> */}
+      <Suspense fallback={<Loader />}>
+        <Router />
+        <ToastContainer />
+        {/* <TradingChat /> */}
+      </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

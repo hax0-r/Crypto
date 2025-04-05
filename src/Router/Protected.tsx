@@ -1,7 +1,9 @@
-const Protected = () => {
-  return (
-    <div>Protected</div>
-  )
-}
+import { Navigate, Outlet } from "react-router-dom";
 
-export default Protected
+const Protected = () => {
+  const isLogin = true;
+
+  return isLogin ? <Outlet /> : <Navigate to="/sign-in" />;
+};
+
+export default Protected;
