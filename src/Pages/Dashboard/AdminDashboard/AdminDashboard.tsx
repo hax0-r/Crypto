@@ -4,13 +4,13 @@ import { GoDependabot } from "react-icons/go";
 import DashboardCard from "../../../Components/Dashboard/DashboardCard";
 import { GoDotFill } from "react-icons/go";
 import { IoIosSearch } from "react-icons/io";
-import { format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
+// import { format } from "date-fns"
+// import { CalendarIcon } from "lucide-react"
 import { HiOutlineTrash } from "react-icons/hi2";
-import { Calendar } from "../../../Components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "../../../Components/ui/popover";
+// import { Calendar } from "../../../Components/ui/calendar";
+// import { Popover, PopoverContent, PopoverTrigger } from "../../../Components/ui/popover";
 import { Button } from "../../../Components/ui/button";
-import { cn } from "../../../lib/utils";
+// import { cn } from "../../../lib/utils";
 import { useState } from "react";
 import { BiSolidUserDetail } from "react-icons/bi";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../../../Components/ui/select";
@@ -100,17 +100,17 @@ const userData = [
 ];
 
 const AdminDashboard = () => {
-    const [date, setDate] = useState<Date>()
+    // const [date, setDate] = useState<Date>()
     const [searchItem, setSearchItem] = useState('')
     const [filterItem, setFilterItem] = useState('')
 
-    const isSameDate = (date1: Date, date2: Date) => {
-        return (
-            date1.getDate() === date2.getDate() &&
-            date1.getMonth() === date2.getMonth() &&
-            date1.getFullYear() === date2.getFullYear()
-        );
-    };
+    // const isSameDate = (date1: Date, date2: Date) => {
+    //     return (
+    //         date1.getDate() === date2.getDate() &&
+    //         date1.getMonth() === date2.getMonth() &&
+    //         date1.getFullYear() === date2.getFullYear()
+    //     );
+    // };
 
     const handleSearchAndFilter = userData.filter((user) => {
         const matchesSearch = searchItem
@@ -125,11 +125,11 @@ const AdminDashboard = () => {
             ? true
             : user.status.toLowerCase() === filterItem.toLowerCase();
 
-        const matchesDate = date
-            ? isSameDate(new Date(user.date), date)
-            : true;
+        // const matchesDate = date
+        //     ? isSameDate(new Date(user.date), date)
+        //     : true;
 
-        return matchesSearch && matchesFilter && matchesDate;
+        return matchesSearch && matchesFilter ;
     });
 
 
@@ -154,7 +154,7 @@ const AdminDashboard = () => {
                         <IoIosSearch className="text-[#ffffffc4] text-2xl" />
                     </div>
                     <div className="md:flex hidden items-center gap-2">
-                        <Popover>
+                        {/* <Popover>
                             <PopoverTrigger asChild>
                                 <Button
                                     variant={"outline"}
@@ -175,7 +175,7 @@ const AdminDashboard = () => {
                                     initialFocus
                                 />
                             </PopoverContent>
-                        </Popover>
+                        </Popover> */}
                         <Select onValueChange={(e) => setFilterItem(e)} defaultValue="all">
                             <SelectTrigger className="w-[180px] text-white">
                                 <SelectValue placeholder="Select Status" />
