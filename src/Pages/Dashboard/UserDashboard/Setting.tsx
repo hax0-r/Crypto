@@ -30,7 +30,7 @@ const Setting = () => {
                             Passionate about financial markets and smart investments
                             </p>
                         </div>
-                        <Link to={"platform"}>
+                        <Link to={"/platform"}>
                             <Button className="rounded-full py-6">
                                 <SlGraph className='ml-2' />
                                 <span className="pr-2 capitalize text-base leading-7 text-white">

@@ -24,6 +24,7 @@ interface UserDashboardWrapperProps {
 
 const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({ children, ...props }) => {
     const location = useLocation();
+    const admin: boolean = true; // Replace with actual admin check
 
     const [isOpen, setIsOpen] = useState<Boolean>(true)
 

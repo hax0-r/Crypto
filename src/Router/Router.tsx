@@ -13,7 +13,10 @@ import Help from "../Pages/Dashboard/UserDashboard/Help";
 import Events from "../Pages/Dashboard/UserDashboard/Events";
 import Deposit from "../Pages/Dashboard/UserDashboard/Deposit";
 import BotPlan from "../Pages/Dashboard/UserDashboard/BotPlan";
-import Protected from "./Protected";
+import UserProtected from "./UserProtected";
+import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
+import AdminProtected from "./AdminProtected";
+import UserDetail from "../Pages/Dashboard/AdminDashboard/UserDetail";
 
 const Router = () => {
     return (
@@ -22,8 +25,8 @@ const Router = () => {
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/create-account" element={<CreateAccount />} />
 
-            {/* Protected routes wrapper */}
-            <Route element={<Protected />}>
+            {/* UserProtected routes wrapper for users */}
+            <Route element={<UserProtected />}>
                 <Route path="/platform" element={<Platform />} />
                 <Route path="/user-dashboard" element={<UserDashboard />} />
                 <Route path="/setting" element={<Setting />} />
@@ -36,6 +39,13 @@ const Router = () => {
                 <Route path="/deposit" element={<Deposit />} />
                 <Route path="/bot-plan" element={<BotPlan />} />
             </Route>
+
+            {/* Protected routes wrapper for admin */}
+            <Route element={<AdminProtected />}>
+                <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                <Route path="/user-detail" element={<UserDetail />} />
+            </Route>
+
         </Routes>
     );
 };

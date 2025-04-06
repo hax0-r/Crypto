@@ -50,7 +50,7 @@ const Footer = () => {
                                 </li>
                                 <li className="mb-6">
                                     <Link
-                                        to="javascript:;"
+                                        to="/admin-dashboard"
                                         className=" hover:text-primery transition-all duration-500"
                                     >
                                         {t("Features")}
