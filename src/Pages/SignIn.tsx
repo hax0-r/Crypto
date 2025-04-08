@@ -58,8 +58,8 @@ const SignIn = () => {
                     <div className="max-w-7xl md:p-5 p-3 min-h-screen w-full mx-auto flex items-center justify-between gap-10">
 
                         <div className="lg:block hidden lg:max-w-[50%] w-full mb-20">
-                            <h1 className="md:text-7xl text-[2.8rem] text-white font-semibold max-w-2xl md:leading-[1.1] leading-tight capitalize ">{t("mainHeading.line1")}
-                                <span className="bg-gradient-to-r pt-3 block NekstLight from-[#a66eff] to-white bg-clip-text text-transparent">  with {t("mainHeading.line2")}</span></h1>
+                            <h1 className="md:text-7xl text-[2.8rem] text-white font-medium max-w-2xl md:leading-[1.1] leading-tight capitalize ">{t("mainHeading.line1")}
+                                <span className="bg-gradient-to-r pt-3 block from-[#a66eff] to-white bg-clip-text text-transparent">  with {t("mainHeading.line2")}</span></h1>
                         </div>
                         <div className="lg:max-w-[50%] w-full">
 

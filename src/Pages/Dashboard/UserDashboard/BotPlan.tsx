@@ -6,30 +6,39 @@ import { Button } from '../../../Components/ui/button';
 // Dummy trading bot plans
 const botPlans = [
     {
+        name: "Free",
+        price: "$0.00/month",
+        features: {
+            "Basic Bot": false,
+            "Advanced Bot": false,
+            "Pro Bot": false,
+        }
+    },
+    {
         name: "Basic Bot",
         price: "$29/month",
         features: {
-            "Automated Trading": true,
-            "Market Analysis": false,
-            "AI Predictions": false,
+            "Basic Bot": true,
+            "Advanced Bot": false,
+            "Pro Bot": false,
         }
     },
     {
         name: "Advanced Bot",
         price: "$59/month",
         features: {
-            "Automated Trading": true,
-            "Market Analysis": true,
-            "AI Predictions": false,
+            "Basic Bot": true,
+            "Advanced Bot": true,
+            "Pro Bot": false,
         }
     },
     {
         name: "Pro Bot",
         price: "$99/month",
         features: {
-            "Automated Trading": true,
-            "Market Analysis": true,
-            "AI Predictions": true,
+            "Basic Bot": true,
+            "Advanced Bot": true,
+            "Pro Bot": true,
         }
     }
 ];
@@ -44,19 +53,19 @@ const BotPlan = () => {
                             <table className="min-w-full rounded-xl">
                                 <thead>
                                     <tr className="bg-[#ffffff0e] text-white">
-                                        <th className="p-5 text-left leading-6 capitalize rounded-tl-xl">
-                                            Plan Name
+                                        <th className="p-5 font-medium text-left leading-6 capitalize rounded-tl-xl">
+                                            Profits Plan 
                                         </th>
-                                        <th className="p-5 leading-6 capitalize text-center">
-                                            Simple Trade Boost
+                                        <th className="p-5 font-medium leading-6 capitalize text-center">
+                                            basic <span className='text-xs opacity-60'> ( 10% -15% ) </span>
                                         </th>
-                                        <th className="p-5 leading-6 capitalize text-center">
-                                            Smarter Trading Flow
+                                        <th className="p-5 font-medium leading-6 capitalize text-center">
+                                            Advance <span className='text-xs opacity-60'> ( 15% -20% ) </span>
                                         </th>
-                                        <th className="p-5 leading-6 capitalize text-center">
-                                            Consistent Trade Success
+                                        <th className="p-5 font-medium leading-6 capitalize text-center">
+                                            Pro <span className='text-xs opacity-60'> ( 20% -25% ) </span>
                                         </th>
-                                        <th className="p-5 leading-6 capitalize text-center rounded-tr-xl">
+                                        <th className="p-5 font-medium leading-6 capitalize text-center rounded-tr-xl">
                                             Price
                                         </th>
                                     </tr>
@@ -86,9 +95,9 @@ const BotPlan = () => {
                                     {/* Buy Now Row */}
                                     <tr>
                                         <td />
-                                        {botPlans.map((bot, index) => (
+                                        {botPlans.slice(1).map((bot, index) => (
                                             <td key={index} className="p-5 text-sm font-medium text-center">
-                                                <Button className='rounded-full md:px-8'>
+                                                <Button className="rounded-full md:px-8">
                                                     Buy {bot.name}
                                                 </Button>
                                             </td>

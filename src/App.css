@@ -1,53 +1,18 @@
-@font-face {
-  font-family: NekstLight;
-  src: url(../public/Fonts/Nekst/Nekst-Light.otf) format('opentype');
-}
-
-@font-face {
-  font-family: Nekst;
-  src: url('../public/Fonts/Nekst/Nekst-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: NekstMedium;
-  src: url(../public/Fonts/Nekst/Nekst-Medium.otf) format('opentype');
-}
-
-@font-face {
-  font-family: NekstSemibold;
-  src: url(../public/Fonts/Nekst/Nekst-SemiBold.otf) format('opentype');
-}
-
-@font-face {
-  font-family: NekstBold;
-  src: url(../public/Fonts/Nekst/Nekst-Bold.otf) format('opentype');
-}
-
-.NekstLight {
-  font-family: NekstLight;
-}
-
-.NekstMedium {
-  font-family: NekstMedium;
-}
-
-.NekstSemibold {
-  font-family: NekstSemibold;
-}
-
-.NekstBold {
-  font-family: NekstBold;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   box-sizing: border-box;
   outline: none;
-  font-family: Nekst;
+  font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  &::selection{
+  &::selection {
     background-color: #5f29b7;
     color: white;
   }
+}
+
+.roboto{
+  font-family: "Roboto", sans-serif;
 }
 
 img,
@@ -97,8 +62,8 @@ a {
 
 /* sign in  */
 
-.bgSignIn{
-  background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.795)), url(/public/home/signInBg.png) center/cover;
+.bgSignIn {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.795)), url(/public/home/signInBg.png) center/cover;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -106,6 +71,8 @@ a {
 }
 
 .custom-scrollbar {
-  -ms-overflow-style: none;  /* Hide scrollbar in IE/Edge */
-  scrollbar-width: none;      /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none;
+  /* Hide scrollbar in IE/Edge */
+  scrollbar-width: none;
+  /* Hide scrollbar in Firefox */
 }

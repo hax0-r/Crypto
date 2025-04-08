@@ -37,12 +37,12 @@ const Withdrawal = () => {
                     </Select>
 
                     <p className="text-sm mb-2 mt-8">Withdraw Amount</p>
-                    <Input placeholder="$ 1000.00" />
+                    <Input placeholder="PKR 1000.00" />
 
                     <button className="w-full rounded-lg p-3 text-white bg-[#5f29b7] cursor-pointer transition-all duration-500 hover:bg-[#5f29b7]/80 mt-4">Request</button>
                 </div>
                 <div className="md:max-w-[50%] w-full">
-                    <h2 className="text-xl capitalize mt-4 tracking-wide font-semibold">Wallet: $300.00</h2>
+                    <h2 className="text-xl capitalize mt-4 tracking-wide font-semibold">Wallet: 300.00 Rs</h2>
 
                     <p className="text-[#ffffffaf] md:mt-8 mt-5">You can withdraw your profits at any time and re-invest it by making another deposit. Withdraw amount processing usually requires one business day.
                         <br /><br />

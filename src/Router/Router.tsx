@@ -17,6 +17,7 @@ import UserProtected from "./UserProtected";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import AdminProtected from "./AdminProtected";
 import UserDetail from "../Pages/Dashboard/AdminDashboard/UserDetail";
+import EventsAdd from "../Pages/Dashboard/AdminDashboard/EventsAdd";
 
 const Router = () => {
     return (
@@ -44,6 +45,7 @@ const Router = () => {
             <Route element={<AdminProtected />}>
                 <Route path="/admin-dashboard" element={<AdminDashboard />} />
                 <Route path="/user-detail" element={<UserDetail />} />
+                <Route path="/event-add" element={<EventsAdd />} />
             </Route>
 
         </Routes>

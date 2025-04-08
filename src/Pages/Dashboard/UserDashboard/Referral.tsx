@@ -45,13 +45,13 @@ const Referral = () => {
         <div className="w-full p-5  overflow-hidden md:flex hidden flex-col justify-center relative rounded-lg bg-[#6d45b9]">
           <h3 className='md:text-2xl text-xl'>Monthly Bones</h3>
           <p className='text-sm opacity-70 mt-3'>
-            You have earned <span className='text-[#ffb700]'>0.00 USDT</span> this month.
+            You have earned <span className='text-[#ffb700]'>0.00 Rs</span> this month.
           </p>
           <p className='text-sm opacity-70 mt-3'>
             You have invited <span className='text-[#ffb700]'>0</span> friends this month.
           </p>
-          <Button onClick={copyToClipboard} className='bg-[#6134b4] mt-4 capitalize tracking-wide'>
-            share your link
+          <Button className='bg-[#6134b4] mt-4 capitalize tracking-wide'>
+            Claim 
           </Button>
         </div>
         <div className="w-full p-5  overflow-hidden md:flex hidden flex-col justify-center relative rounded-lg bg-[#6d45b9]">

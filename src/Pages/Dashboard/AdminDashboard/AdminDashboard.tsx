@@ -4,17 +4,13 @@ import { GoDependabot } from "react-icons/go";
 import DashboardCard from "../../../Components/Dashboard/DashboardCard";
 import { GoDotFill } from "react-icons/go";
 import { IoIosSearch } from "react-icons/io";
-// import { format } from "date-fns"
-// import { CalendarIcon } from "lucide-react"
 import { HiOutlineTrash } from "react-icons/hi2";
-// import { Calendar } from "../../../Components/ui/calendar";
-// import { Popover, PopoverContent, PopoverTrigger } from "../../../Components/ui/popover";
 import { Button } from "../../../Components/ui/button";
-// import { cn } from "../../../lib/utils";
 import { useState } from "react";
 import { BiSolidUserDetail } from "react-icons/bi";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../../../Components/ui/select";
 import { Link } from "react-router";
+import { GoGift } from "react-icons/go";
 
 const userData = [
     {
@@ -100,17 +96,8 @@ const userData = [
 ];
 
 const AdminDashboard = () => {
-    // const [date, setDate] = useState<Date>()
     const [searchItem, setSearchItem] = useState('')
     const [filterItem, setFilterItem] = useState('')
-
-    // const isSameDate = (date1: Date, date2: Date) => {
-    //     return (
-    //         date1.getDate() === date2.getDate() &&
-    //         date1.getMonth() === date2.getMonth() &&
-    //         date1.getFullYear() === date2.getFullYear()
-    //     );
-    // };
 
     const handleSearchAndFilter = userData.filter((user) => {
         const matchesSearch = searchItem
@@ -125,11 +112,7 @@ const AdminDashboard = () => {
             ? true
             : user.status.toLowerCase() === filterItem.toLowerCase();
 
-        // const matchesDate = date
-        //     ? isSameDate(new Date(user.date), date)
-        //     : true;
-
-        return matchesSearch && matchesFilter ;
+        return matchesSearch && matchesFilter;
     });
 
 
@@ -147,6 +130,10 @@ const AdminDashboard = () => {
                     <DashboardCard title="Active Plans" amount="847" description="Subscribed Users" icon={GoDependabot} />
                 </div>
 
+                <Link to={"/event-add"} className="flex items-center justify-center my-5">
+                    <Button className="w-full" size={"lg"} > <GoGift className="text-white" />Events</Button>
+                </Link>
+
                 <div className="mt-10 mb-3 flex items-center justify-between ">
                     <div className="border rounded-lg flex items-center border-[#ffffff80] pr-2 justify-center">
                         <input value={searchItem}
@@ -154,28 +141,6 @@ const AdminDashboard = () => {
                         <IoIosSearch className="text-[#ffffffc4] text-2xl" />
                     </div>
                     <div className="md:flex hidden items-center gap-2">
-                        {/* <Popover>
-                            <PopoverTrigger asChild>
-                                <Button
-                                    variant={"outline"}
-                                    className={cn(
-                                        "w-[280px] justify-start text-left font-normal",
-                                        !date && "text-muted-foreground"
-                                    )}
-                                >
-                                    <CalendarIcon />
-                                    {date ? format(date, "PPP") : <span>Pick a date</span>}
-                                </Button>
-                            </PopoverTrigger>
-                            <PopoverContent className="w-auto p-0">
-                                <Calendar
-                                    mode="single"
-                                    selected={date}
-                                    onSelect={setDate}
-                                    initialFocus
-                                />
-                            </PopoverContent>
-                        </Popover> */}
                         <Select onValueChange={(e) => setFilterItem(e)} defaultValue="all">
                             <SelectTrigger className="w-[180px] text-white">
                                 <SelectValue placeholder="Select Status" />

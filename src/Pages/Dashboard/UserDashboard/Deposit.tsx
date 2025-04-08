@@ -36,7 +36,7 @@ const Deposit = () => {
                     </Select>
 
                     <p className="text-sm mb-2 mt-8">Deposit Amount</p>
-                    <Input placeholder="$ 1000.00" />
+                    <Input placeholder="PKR 5,000" />
 
                     {/* <p className="text-sm mb-2 mt-8">Upload Proof</p>
                     <div className="flex items-center justify-center w-full">
@@ -67,7 +67,7 @@ const Deposit = () => {
                         At wealth way trade, we ensure a smooth and secure deposit process, allowing traders to fund their accounts effortlessly. Our deposit policy is designed to provide flexibility, security, and convenience
                     </p>
                     <ul className="list-disc mt-5 pl-5 text-[#ffffffd5] space-y-3">
-                       <li> Minimum Deposit: $2,500 per transaction</li>
+                       <li> Minimum Deposit: PKR 5,000 per transaction</li>
                        <li> Maximum Limit: No daily cap – deposit as much as you need</li>
                        <li> Instant Processing: Fast and secure transactions for uninterrupted trading</li>
                        <li> Multiple Payment Methods: Choose from a variety of deposit options to suit your needs</li>
