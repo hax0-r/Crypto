@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FiUser } from "react-icons/fi";
-import { LuMoveUp } from "react-icons/lu";
 import { FiLock } from "react-icons/fi";
 import {
     Sheet,
@@ -25,7 +24,7 @@ const RightBar = () => {
             <div className="bg-[#171022] w-96 p-4 md:block hidden">
                 <div className="flex items-center justify-between gap-5">
                     <Sheet>
-                        <SheetTrigger className="bg-[#5f29b7] text-white px-16 py-3 rounded-lg cursor-pointer hover:opacity-80 transition-all duration-500">
+                        <SheetTrigger className="bg-[#5f29b7e0] text-white px-16 py-3 rounded-lg cursor-pointer hover:opacity-80 transition-all duration-500">
                             Payment
                         </SheetTrigger>
                         <SheetContent>
@@ -93,11 +92,10 @@ const RightBar = () => {
                     <label className="text-zinc-500 text-sm">Start Trade</label>
 
                     <div className="flex items-center gap-2 mt-2">
-                        <button className="bg-green-600 flex items-center justify-center gap-2 text-white p-3 w-full rounded-lg cursor-pointer hover:opacity-80 transition-all duration-500">
-                            Up <LuMoveUp />
-                        </button>
-                        <button className="bg-red-600 flex items-center justify-center gap-2 text-white p-3 w-full rounded-lg cursor-pointer hover:opacity-80 transition-all duration-500">
-                            Down <LuMoveUp className="rotate-180" />
+                        <button
+                            className="bg-[#5f29b7] hover:opacity-80 transition-all duration-500 active:scale-95 w-full py-3 rounded-lg  text-white cursor-pointer"
+                        >
+                            Start Trade
                         </button>
                     </div>
 

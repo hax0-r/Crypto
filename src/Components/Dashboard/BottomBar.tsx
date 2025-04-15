@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
-import { LuMoveUp } from "react-icons/lu";
 import { toast } from "react-toastify";
 import { RiRobot2Line } from "react-icons/ri";
 
@@ -38,14 +37,6 @@ const BottomBar = () => {
             setTime(time - 5);
         } else {
             toast.warning("Minimum time is 5 seconds.");
-        }
-    };
-
-    const handleUpClick = () => {
-        if (amount < 250) {
-            toast.warning("You cannot add and start trade less than 250.");
-        } else {
-            toast.warning("Trade started successfully!");
         }
     };
 
@@ -102,17 +93,14 @@ const BottomBar = () => {
                 {/* Buttons */}
                 <div className="flex col-span-2 items-center gap-2">
                     <button
-                        className="bg-green-600 flex items-center justify-center gap-2 text-white p-3 w-full rounded-lg cursor-pointer hover:opacity-80 transition-all duration-500"
-                        onClick={handleUpClick}
+                        className="bg-[#5f29b7] hover:opacity-80 transition-all duration-500 active:scale-95 w-full py-3 rounded-lg  text-white cursor-pointer"
                     >
-                        Up <LuMoveUp />
+                        Start Trade
                     </button>
                     <div onClick={botHandler} className={`${botOn ? "bg-[#5726a8]" : "bg-transparent"} ${botEnable ? "opacity-100" : "opacity-40"} w-32 rounded-lg h-full flex items-center justify-center text-white border   border-[#5726a8] `}>
                         <RiRobot2Line className="text-2xl" />
                     </div>
-                    <button className="bg-red-600 flex items-center justify-center gap-2 text-white p-3 w-full rounded-lg cursor-pointer hover:opacity-80 transition-all duration-500">
-                        Down <LuMoveUp className="rotate-180" />
-                    </button>
+
                 </div>
             </div>
         </div>
