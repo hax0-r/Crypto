@@ -18,38 +18,41 @@ import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import AdminProtected from "./AdminProtected";
 import UserDetail from "../Pages/Dashboard/AdminDashboard/UserDetail";
 import EventsAdd from "../Pages/Dashboard/AdminDashboard/EventsAdd";
+import VerifyOTP from "../Pages/VerifyOTP";
+import ResetPassword from "../Pages/ResetPassword";
 
 const Router = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sign-in" element={<SignIn />} />
-            <Route path="/create-account" element={<CreateAccount />} />
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/create-account" element={<CreateAccount />} />
+      <Route path="/verify-otp" element={<VerifyOTP />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
 
-            {/* UserProtected routes wrapper for users */}
-            <Route element={<UserProtected />}>
-                <Route path="/platform" element={<Platform />} />
-                <Route path="/user-dashboard" element={<UserDashboard />} />
-                <Route path="/setting" element={<Setting />} />
-                <Route path="/withdrawal" element={<Withdrawal />} />
-                <Route path="/transactions" element={<Transactions />} />
-                <Route path="/referral" element={<Referral />} />
-                <Route path="/payment-method" element={<PaymentMethod />} />
-                <Route path="/help" element={<Help />} />
-                <Route path="/events" element={<Events />} />
-                <Route path="/deposit" element={<Deposit />} />
-                <Route path="/bot-plan" element={<BotPlan />} />
-            </Route>
+      {/* UserProtected routes wrapper for users */}
+      <Route element={<UserProtected />}>
+        <Route path="/platform" element={<Platform />} />
+        <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/setting" element={<Setting />} />
+        <Route path="/withdrawal" element={<Withdrawal />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/referral" element={<Referral />} />
+        <Route path="/payment-method" element={<PaymentMethod />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/deposit" element={<Deposit />} />
+        <Route path="/bot-plan" element={<BotPlan />} />
+      </Route>
 
-            {/* Protected routes wrapper for admin */}
-            <Route element={<AdminProtected />}>
-                <Route path="/admin-dashboard" element={<AdminDashboard />} />
-                <Route path="/user-detail" element={<UserDetail />} />
-                <Route path="/event-add" element={<EventsAdd />} />
-            </Route>
-
-        </Routes>
-    );
+      {/* Protected routes wrapper for admin */}
+      <Route element={<AdminProtected />}>
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/user-detail" element={<UserDetail />} />
+        <Route path="/event-add" element={<EventsAdd />} />
+      </Route>
+    </Routes>
+  );
 };
 
 export default Router;
