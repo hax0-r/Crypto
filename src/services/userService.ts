@@ -15,10 +15,42 @@ export interface User {
   createdAt: string;
 }
 
+export interface UserDetail extends User {
+  referrals?: Array<{
+    id: string;
+    user: {
+      fullName: string;
+      email: string;
+    };
+    joinedAt: string;
+  }>;
+  transactions?: Array<{
+    id: string;
+    type: string;
+    amount: number;
+    status: string;
+    createdAt: string;
+  }>;
+  paymentMethods?: Array<{
+    id: string;
+    type: string;
+    name: string;
+    isDefault: boolean;
+  }>;
+}
+
 const userService = {
   // Get all users (admin only)
   getAllUsers: async (): Promise<ApiResponse<User[]>> => {
     const response = await apiClient.get<ApiResponse<User[]>>("/users/all");
+    return response.data;
+  },
+
+  // Get single user details (admin only)
+  getUserDetails: async (userId: string): Promise<ApiResponse<UserDetail>> => {
+    const response = await apiClient.get<ApiResponse<UserDetail>>(
+      `/users/${userId}`
+    );
     return response.data;
   },
 

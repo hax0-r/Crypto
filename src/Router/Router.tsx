@@ -48,7 +48,7 @@ const Router = () => {
       {/* Protected routes wrapper for admin */}
       <Route element={<AdminProtected />}>
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/user-detail" element={<UserDetail />} />
+        <Route path="/user-detail/:userId" element={<UserDetail />} />
         <Route path="/event-add" element={<EventsAdd />} />
       </Route>
     </Routes>
