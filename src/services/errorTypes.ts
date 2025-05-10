@@ -18,6 +18,7 @@ export interface AuthTokenData {
     id: string;
     fullName: string;
     email: string;
+    isAdmin?: boolean;
   };
 }
 
@@ -30,4 +31,5 @@ export interface UserProfileData {
   totalProfit: number;
   referralCode: string;
   referralCount: number;
+  isAdmin?: boolean;
 }

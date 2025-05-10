@@ -56,7 +56,13 @@ const SignIn = () => {
 
       if (response.success && response.data) {
         toast.success(`Welcome, ${response.data.user.fullName}`);
-        navigate("/platform");
+
+        // Check if user is admin and redirect accordingly
+        if (response.data.user.isAdmin) {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/platform");
+        }
       } else {
         toast.error(response.message || "Login failed");
       }
