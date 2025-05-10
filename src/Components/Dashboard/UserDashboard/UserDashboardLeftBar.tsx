@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import logo from "../../../assets/logo.png";
 import { PiHandWithdraw } from "react-icons/pi";
 import { IoReceiptOutline } from "react-icons/io5";
@@ -20,11 +20,13 @@ import {
   BreadcrumbSeparator,
 } from "../../ui/breadcrumb";
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { IoClose } from "react-icons/io5";
 import { useLocation } from "react-router-dom"; // Fix import
 import authService from "../../../services/authService";
 import { UserProfileData } from "../../../services/errorTypes";
+import { FiChevronDown, FiLogOut } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 interface UserDashboardWrapperProps {
   children: React.ReactNode;
@@ -36,9 +38,12 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({
   ...props
 }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -64,6 +69,23 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({
     }
   }, [location.pathname]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const closeSlideBar = () => {
     if (window.innerWidth < 1024) {
       setIsOpen(false);
@@ -73,6 +95,18 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({
   // Get the first letter of the user's full name for the avatar fallback
   const getInitials = (name: string) => {
     return name ? name.charAt(0).toUpperCase() : "U";
+  };
+
+  // Toggle dropdown menu
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  // Handle logout
+  const handleLogout = () => {
+    authService.logout();
+    toast.success("Logged out successfully");
+    navigate("/sign-in");
   };
 
   return (
@@ -214,28 +248,60 @@ const UserDashboardLeftBar: React.FC<UserDashboardWrapperProps> = ({
             onClick={() => setIsOpen(true)}
             className="lg:hidden text-2xl"
           />
-          <div className="flex items-center gap-3">
-            <Avatar>
-              {userProfile?.profileImage ? (
-                <AvatarImage
-                  src={userProfile.profileImage}
-                  alt={userProfile.fullName}
-                />
-              ) : null}
-              <AvatarFallback>
-                {userProfile ? getInitials(userProfile.fullName) : "U"}
-              </AvatarFallback>
-            </Avatar>
-            <div className="lg:flex hidden flex-col">
-              <h2 className="font-medium">
-                {loading ? "Loading..." : userProfile?.fullName || "Name"}
-              </h2>
-              <h2 className="text-sm opacity-60">
-                {loading
-                  ? "Loading..."
-                  : userProfile?.email || "name@gmail.com"}
-              </h2>
+          <div className="flex items-center gap-3 relative" ref={dropdownRef}>
+            <div
+              className="flex items-center gap-2 cursor-pointer"
+              onClick={toggleDropdown}
+            >
+              <Avatar>
+                {userProfile?.profileImage ? (
+                  <AvatarImage
+                    src={userProfile.profileImage}
+                    alt={userProfile.fullName}
+                  />
+                ) : null}
+                <AvatarFallback>
+                  {userProfile ? getInitials(userProfile.fullName) : "U"}
+                </AvatarFallback>
+              </Avatar>
+              <div className="lg:flex hidden flex-col">
+                <h2 className="font-medium">
+                  {loading ? "Loading..." : userProfile?.fullName || "Name"}
+                </h2>
+                <h2 className="text-sm opacity-60">
+                  {loading
+                    ? "Loading..."
+                    : userProfile?.email || "name@gmail.com"}
+                </h2>
+              </div>
+              <FiChevronDown
+                className={`text-sm transition-transform duration-200 ${
+                  isDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
             </div>
+
+            {/* Dropdown Menu */}
+            {isDropdownOpen && (
+              <div className="absolute right-0 top-12 bg-[#2a1c40] border border-[#5c37a1] rounded-lg shadow-lg overflow-hidden z-50 min-w-[200px] animate-slideDown">
+                <div className="py-2">
+                  <Link
+                    to="/setting"
+                    className="flex items-center px-4 py-2 hover:bg-[#3a2956] gap-2"
+                  >
+                    <IoSettingsOutline />
+                    <span>Settings</span>
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left flex items-center px-4 py-2 hover:bg-[#3a2956] gap-2 text-red-400"
+                  >
+                    <FiLogOut />
+                    <span>Log Out</span>
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <Breadcrumb className="mt-4 lg:block hidden">
