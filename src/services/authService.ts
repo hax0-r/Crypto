@@ -38,6 +38,14 @@ export interface ResetPasswordWithTokenData {
   confirmPassword: string;
 }
 
+export interface UpdateProfileImageData {
+  profileImageUrl: string;
+}
+
+export interface UpdateProfileData {
+  fullName: string;
+}
+
 // Auth service functions
 const authService = {
   // Register a new user
@@ -117,6 +125,23 @@ const authService = {
     const response = await apiClient.get<ApiResponse<UserProfileData>>(
       "/auth/profile"
     );
+    return response.data;
+  },
+
+  // Update profile image
+  updateProfileImage: async (
+    data: UpdateProfileImageData
+  ): Promise<ApiResponse> => {
+    const response = await apiClient.put<ApiResponse>(
+      "/users/profile/image",
+      data
+    );
+    return response.data;
+  },
+
+  // Update profile
+  updateProfile: async (data: UpdateProfileData): Promise<ApiResponse> => {
+    const response = await apiClient.put<ApiResponse>("/users/profile", data);
     return response.data;
   },
 
