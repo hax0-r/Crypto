@@ -188,16 +188,27 @@ const AdminDashboard = () => {
           />
         </div>
 
-        <Link
-          to={"/event-add"}
-          className="flex items-center justify-center my-5"
-        >
-          <Button className="w-full" size={"lg"}>
-            {" "}
-            <GoGift className="text-white" />
-            Events
-          </Button>
-        </Link>
+        <div className="flex items-center gap-3 my-5">
+          <Link to={"/events-manage"} className="flex-1">
+            <Button
+              className="w-full flex items-center justify-center"
+              size={"lg"}
+            >
+              <GoGift className="text-white mr-2" />
+              Manage Events
+            </Button>
+          </Link>
+          <Link to={"/event-add"} className="flex-1">
+            <Button
+              className="w-full flex items-center justify-center"
+              size={"lg"}
+              variant="outline"
+            >
+              <GoGift className="text-white mr-2" />
+              Add Event
+            </Button>
+          </Link>
+        </div>
 
         <div className="mt-10 mb-3 flex items-center justify-between ">
           <div className="border rounded-lg flex items-center border-[#ffffff80] pr-2 justify-center">

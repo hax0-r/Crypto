@@ -18,6 +18,7 @@ import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import AdminProtected from "./AdminProtected";
 import UserDetail from "../Pages/Dashboard/AdminDashboard/UserDetail";
 import EventsAdd from "../Pages/Dashboard/AdminDashboard/EventsAdd";
+import EventsManage from "../Pages/Dashboard/AdminDashboard/EventsManage";
 import VerifyOTP from "../Pages/VerifyOTP";
 import ResetPassword from "../Pages/ResetPassword";
 
@@ -50,6 +51,7 @@ const Router = () => {
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/user-detail/:userId" element={<UserDetail />} />
         <Route path="/event-add" element={<EventsAdd />} />
+        <Route path="/events-manage" element={<EventsManage />} />
       </Route>
     </Routes>
   );
