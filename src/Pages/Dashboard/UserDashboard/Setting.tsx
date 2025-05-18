@@ -9,6 +9,7 @@ import authService from "../../../services/authService";
 import { UserProfileData } from "../../../services/errorTypes";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
+import apiClient from "../../../services/api";
 
 const Setting = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -57,33 +58,39 @@ const Setting = () => {
 
     try {
       // Display temporary preview
-      const imageURL = URL.createObjectURL(file);
-      setImageUrl(imageURL);
+      const tempPreviewUrl = URL.createObjectURL(file);
+      setImageUrl(tempPreviewUrl);
 
-      // In a real application, you would upload the file to your server here
-      // This is a placeholder for file upload functionality
+      // Start uploading process
       setUploading(true);
 
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Create form data to upload directly to the backend
+      const formData = new FormData();
+      formData.append("profileImage", file);
 
-      // Mock successful upload - in a real app, you would get the URL from the API response
-      const mockUploadedUrl = imageURL;
-
-      // Update profile image in the backend
-      const response = await authService.updateProfileImage({
-        profileImageUrl: mockUploadedUrl,
+      // Make direct API call to update profile image
+      const response = await apiClient.put("/users/profile/image", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
 
-      if (response.success) {
+      if (response.data.success) {
         toast.success("Profile image updated successfully");
-        setOriginalImageUrl(mockUploadedUrl);
+
+        // Get the updated image URL
+        const profileImageUrl = response.data.data.profileImage;
+        setOriginalImageUrl(profileImageUrl);
+
+        // Clean up temporary preview URL
+        URL.revokeObjectURL(tempPreviewUrl);
+
         // Refresh profile data
         fetchUserProfile();
       } else {
         // Revert to original image if update fails
         setImageUrl(originalImageUrl);
-        toast.error(response.message || "Failed to update profile image");
+        toast.error(response.data.message || "Failed to update profile image");
       }
     } catch (error: unknown) {
       // Revert to original image on error

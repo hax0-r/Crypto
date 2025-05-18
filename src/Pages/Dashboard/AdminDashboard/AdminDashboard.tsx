@@ -19,6 +19,7 @@ import {
 } from "../../../Components/ui/select";
 import { Link, useNavigate } from "react-router";
 import { GoGift } from "react-icons/go";
+import { FaMoneyBillWave } from "react-icons/fa";
 import userService, { User } from "../../../services/userService";
 import authService from "../../../services/authService";
 import { toast } from "react-toastify";
@@ -206,6 +207,27 @@ const AdminDashboard = () => {
             >
               <GoGift className="text-white mr-2" />
               Add Event
+            </Button>
+          </Link>
+        </div>
+
+        <div className="flex items-center gap-3 my-5">
+          <Link to={"/deposits-manage"} className="flex-1">
+            <Button
+              className="w-full flex items-center justify-center bg-[#5f29b7] hover:bg-[#5f29b7]/80"
+              size={"lg"}
+            >
+              <FaMoneyBillWave className="text-white mr-2" />
+              Manage Deposits
+            </Button>
+          </Link>
+          <Link to={"/withdrawals-manage"} className="flex-1">
+            <Button
+              className="w-full flex items-center justify-center bg-[#5f29b7] hover:bg-[#5f29b7]/80"
+              size={"lg"}
+            >
+              <FaMoneyBillWave className="text-white mr-2" />
+              Manage Withdrawals
             </Button>
           </Link>
         </div>

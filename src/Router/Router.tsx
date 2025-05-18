@@ -19,8 +19,10 @@ import AdminProtected from "./AdminProtected";
 import UserDetail from "../Pages/Dashboard/AdminDashboard/UserDetail";
 import EventsAdd from "../Pages/Dashboard/AdminDashboard/EventsAdd";
 import EventsManage from "../Pages/Dashboard/AdminDashboard/EventsManage";
+import DepositManage from "../Pages/Dashboard/AdminDashboard/DepositManage";
 import VerifyOTP from "../Pages/VerifyOTP";
 import ResetPassword from "../Pages/ResetPassword";
+import WithdrawalManage from "../Pages/Dashboard/AdminDashboard/WithdrawalManage";
 
 const Router = () => {
   return (
@@ -52,6 +54,8 @@ const Router = () => {
         <Route path="/user-detail/:userId" element={<UserDetail />} />
         <Route path="/event-add" element={<EventsAdd />} />
         <Route path="/events-manage" element={<EventsManage />} />
+        <Route path="/deposits-manage" element={<DepositManage />} />
+        <Route path="/withdrawals-manage" element={<WithdrawalManage />} />
       </Route>
     </Routes>
   );

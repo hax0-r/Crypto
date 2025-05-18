@@ -15,6 +15,18 @@ export enum TransactionStatus {
   FAILED = "failed",
 }
 
+// Payment method interface
+export interface PaymentMethod {
+  _id: string;
+  userId: string;
+  type: PaymentMethodType;
+  accountNumber: string;
+  accountTitle: string;
+  bankName?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 // Transaction data types
 export interface Transaction {
   id: string;
@@ -27,6 +39,12 @@ export interface Transaction {
     accountNumber: string;
     accountTitle: string;
     bankName?: string;
+  };
+  user?: {
+    id: string;
+    fullName: string;
+    email: string;
+    profileImage?: string;
   };
   transactionReference?: string;
   description: string;
@@ -56,6 +74,11 @@ export interface CreateDepositData {
 export interface CreateWithdrawalData {
   amount: number;
   paymentMethodId: string;
+}
+
+export interface UpdateTransactionStatusData {
+  status: TransactionStatus;
+  adminNote?: string;
 }
 
 // Transaction service functions
@@ -109,6 +132,28 @@ const transactionService = {
     const response = await apiClient.post<ApiResponse<Transaction>>(
       "/transactions/withdrawal",
       data
+    );
+    return response.data;
+  },
+
+  // Update transaction status (admin only)
+  updateTransactionStatus: async (
+    transactionId: string,
+    data: UpdateTransactionStatusData
+  ): Promise<ApiResponse<Transaction>> => {
+    const response = await apiClient.put<ApiResponse<Transaction>>(
+      `/transactions/${transactionId}/status`,
+      data
+    );
+    return response.data;
+  },
+
+  // Get user payment methods
+  getUserPaymentMethods: async (
+    userId: string
+  ): Promise<ApiResponse<PaymentMethod[]>> => {
+    const response = await apiClient.get<ApiResponse<PaymentMethod[]>>(
+      `/users/${userId}/payment-methods`
     );
     return response.data;
   },

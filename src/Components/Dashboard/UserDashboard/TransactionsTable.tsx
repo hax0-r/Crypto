@@ -82,7 +82,11 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
     }
   };
 
-  const getMethodName = (type: PaymentMethodType) => {
+  const getMethodName = (type: PaymentMethodType | string) => {
+    if (type === "manual") {
+      return "Manual Transfer";
+    }
+
     switch (type) {
       case PaymentMethodType.JAZZCASH:
         return "JazzCash";
