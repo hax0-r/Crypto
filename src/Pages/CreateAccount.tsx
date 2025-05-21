@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { IoCloseOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import authService from "../services/authService";
 import { AxiosError } from "axios";
@@ -10,11 +10,23 @@ import { ApiErrorResponse } from "../services/errorTypes";
 
 const CreateAccount = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [referralCode, setReferralCode] = useState<string | null>(null);
+
+  // Extract referral code from URL parameters
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const refCode = queryParams.get("ref") || queryParams.get("referral");
+    if (refCode) {
+      setReferralCode(refCode);
+      console.log("Referral code detected:", refCode);
+    }
+  }, [location.search]);
 
   const validateEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -41,12 +53,17 @@ const CreateAccount = () => {
 
     try {
       setLoading(true);
-      const response = await authService.register({
+
+      // Create registration data with referral code if available
+      const registrationData = {
         fullName: name,
         email,
         password,
         confirmPassword,
-      });
+        ...(referralCode && { referralCode }),
+      };
+
+      const response = await authService.register(registrationData);
 
       if (response.success) {
         toast.success("Registration successful! Please verify your email.");

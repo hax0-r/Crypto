@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import Home from "../Pages/Home";
 import Platform from "../Pages/Dashboard/Platform";
 import SignIn from "../Pages/SignIn";
@@ -23,6 +23,13 @@ import DepositManage from "../Pages/Dashboard/AdminDashboard/DepositManage";
 import VerifyOTP from "../Pages/VerifyOTP";
 import ResetPassword from "../Pages/ResetPassword";
 import WithdrawalManage from "../Pages/Dashboard/AdminDashboard/WithdrawalManage";
+import BotSubscriptionManage from "../Pages/Dashboard/AdminDashboard/BotSubscriptionManage";
+
+// Create a wrapper component to preserve query parameters when redirecting
+const RegisterRedirect = () => {
+  const location = useLocation();
+  return <Navigate to={`/create-account${location.search}`} replace />;
+};
 
 const Router = () => {
   return (
@@ -30,6 +37,7 @@ const Router = () => {
       <Route path="/" element={<Home />} />
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/create-account" element={<CreateAccount />} />
+      <Route path="/register" element={<RegisterRedirect />} />
       <Route path="/verify-otp" element={<VerifyOTP />} />
       <Route path="/reset-password" element={<ResetPassword />} />
 
@@ -56,6 +64,7 @@ const Router = () => {
         <Route path="/events-manage" element={<EventsManage />} />
         <Route path="/deposits-manage" element={<DepositManage />} />
         <Route path="/withdrawals-manage" element={<WithdrawalManage />} />
+        <Route path="/bot-subscriptions" element={<BotSubscriptionManage />} />
       </Route>
     </Routes>
   );

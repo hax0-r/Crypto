@@ -30,10 +30,17 @@ export interface ReferralData {
 const referralService = {
   // Get user's referrals
   getReferrals: async (): Promise<ApiResponse<ReferralData>> => {
-    const response = await apiClient.get<ApiResponse<ReferralData>>(
-      "/users/referrals"
-    );
-    return response.data;
+    try {
+      console.log("Fetching referrals data from /users/referrals");
+      const response = await apiClient.get<ApiResponse<ReferralData>>(
+        "/users/referrals"
+      );
+      console.log("Referrals data response:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching referrals:", error);
+      throw error;
+    }
   },
 
   // Claim referral reward (placeholder for future implementation)

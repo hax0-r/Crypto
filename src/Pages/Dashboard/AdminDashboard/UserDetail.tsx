@@ -19,6 +19,7 @@ const UserDetail = () => {
   const { userId } = useParams<{ userId: string }>();
   const [userDetails, setUserDetails] = useState<UserDetailType | null>(null);
   const [loading, setLoading] = useState(true);
+  const [currentDomain, setCurrentDomain] = useState("");
 
   useEffect(() => {
     if (!userId) {
@@ -26,6 +27,9 @@ const UserDetail = () => {
       navigate("/admin-dashboard");
       return;
     }
+
+    // Get current domain
+    setCurrentDomain(window.location.origin);
 
     fetchUserDetails(userId);
   }, [userId, navigate]);
@@ -209,7 +213,7 @@ const UserDetail = () => {
               <input
                 type="text"
                 className="w-full text-white p-2 border border-[#ffffff3b] rounded-lg"
-                value={`https://wealthwaytrade.com/register?referral=${userDetails.referralCode}`}
+                value={`${currentDomain}/register?ref=${userDetails.referralCode}`}
                 readOnly
               />
               <Button className="bg-[#6d45b9]">User's Referral Link</Button>

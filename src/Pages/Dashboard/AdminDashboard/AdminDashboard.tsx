@@ -20,6 +20,7 @@ import {
 import { Link, useNavigate } from "react-router";
 import { GoGift } from "react-icons/go";
 import { FaMoneyBillWave } from "react-icons/fa";
+import { PiRobotFill } from "react-icons/pi";
 import userService, { User } from "../../../services/userService";
 import authService from "../../../services/authService";
 import { toast } from "react-toastify";
@@ -228,6 +229,19 @@ const AdminDashboard = () => {
             >
               <FaMoneyBillWave className="text-white mr-2" />
               Manage Withdrawals
+            </Button>
+          </Link>
+        </div>
+
+        {/* Bot Subscription Management Button */}
+        <div className="flex items-center gap-3 my-5">
+          <Link to={"/bot-subscriptions"} className="flex-1">
+            <Button
+              className="w-full flex items-center justify-center bg-[#5f29b7] hover:bg-[#5f29b7]/80"
+              size={"lg"}
+            >
+              <PiRobotFill className="text-white mr-2" />
+              Manage Bot Subscriptions
             </Button>
           </Link>
         </div>

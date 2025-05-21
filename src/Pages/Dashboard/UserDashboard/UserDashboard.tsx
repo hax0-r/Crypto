@@ -13,6 +13,7 @@ const UserDashboard = () => {
   const [balance, setBalance] = useState<number>(0);
   const [referrals, setReferrals] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
+  const [profit, setProfit] = useState<number>(0);
 
   useEffect(() => {
     fetchUserData();
@@ -22,16 +23,21 @@ const UserDashboard = () => {
     try {
       setLoading(true);
 
-      // Fetch user profile to get balance
+      // Fetch user profile to get balance and totalProfit
       const profileResponse = await authService.getProfile();
       if (profileResponse.success && profileResponse.data) {
         setBalance(profileResponse.data.balance);
+        setProfit(profileResponse.data.totalProfit); // Use totalProfit from API
+        console.log("User profile data:", profileResponse.data);
       }
 
       // Fetch user referrals to get count
       const referralsResponse = await referralService.getReferrals();
       if (referralsResponse.success && referralsResponse.data) {
+        console.log("Referrals data:", referralsResponse.data);
         setReferrals(referralsResponse.data.referralCount);
+      } else {
+        console.warn("Failed to get referrals:", referralsResponse);
       }
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
@@ -63,8 +69,8 @@ const UserDashboard = () => {
           />
           <DashboardCard
             title="Total Profit"
-            amount="$ 5,000"
-            description="Earnings eligible for withdrawal."
+            amount={loading ? "Loading..." : formatCurrency(profit)}
+            description="Earnings from your trades."
             icon={GrMoney}
           />
           <DashboardCard
@@ -74,6 +80,23 @@ const UserDashboard = () => {
             icon={RiStackshareLine}
           />
         </div>
+
+        {profit > 0 && (
+          <div className="mt-4 p-4 bg-[#1e1332] rounded-lg border border-green-500/20">
+            <div className="flex items-center gap-2">
+              <GrMoney className="text-green-400" />
+              <span className="text-green-400 font-medium">
+                Trading Profit Summary
+              </span>
+            </div>
+            <p className="text-[#ffffffb0] text-sm mt-2">
+              You have earned a total of {formatCurrency(profit)} in profits
+              from your trading activities.
+              {profit > 10000 && " Great job with your trading strategy!"}
+            </p>
+          </div>
+        )}
+
         <div className="mt-10">
           <Chart />
         </div>

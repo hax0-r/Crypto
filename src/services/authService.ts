@@ -7,6 +7,7 @@ export interface RegisterData {
   email: string;
   password: string;
   confirmPassword: string;
+  referralCode?: string;
 }
 
 export interface VerifyOTPData {
@@ -148,6 +149,7 @@ const authService = {
   // Logout
   logout: () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("tradingProfit");
   },
 };
 
